@@ -106,13 +106,6 @@ jobs:
             
         #- run: kubectl version --short -o yaml
 
-        - run: |
-            sudo -i
-            swapoff -a
-            exit
-            strace -eopenat kubectl version
-            kubectl version --short -o yaml
-
         - run: >
             echo "INGRESS_IP=$(kubectl -n ingress-nginx get services
             ingress-nginx-controller -o
